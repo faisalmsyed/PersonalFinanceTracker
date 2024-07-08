@@ -9,35 +9,6 @@ def main():
 
 df = pd.DataFrame(columns = ['Amount', 'Source/Category', 'Type', 'Date'])
 
-while True:
-    print("\nOptions: 1. Add Income  2. Add Expense  3. Save  4. Load  5. Plot  6. Summary  7. Exit")
-    choice = input("Choose an option:")
-
-    if choice == '1':
-        amount = get_valid_amount()
-        source = input("Enter source: ")
-        date = input("Enter date (YYYY-MM-DD): ")
-        df = add_income(df, amount, source, date)
-    elif choice == '2':
-        amount = get_valid_amount()
-        category = input("Enter category: ")
-        date = input("Enter date (YYYY-MM-DD): ")
-        df = add_expense(df, amount, category, date)
-    elif choice == '3':
-        filename = input("Enter filename: ")
-        save_data(df, filename)
-    elif choice == '4':
-        filename = input("Enter filename: ")
-        df = load_data(filename)
-    elif choice == '5':
-        plot_data(df)
-    elif choice == '6':
-        show_summary(df)
-    elif choice == '7':
-        break
-    else:
-        print("Invalid choice. Please try again.")
-
 def authenticate_user():
     username = input("Enter username: ")
     password = input("Enter password: ")
@@ -100,6 +71,37 @@ def plot_monthly_summary(df):
     plt.title('Monthly Financial Summary')
     plt.legend()
     plt.show()
+
+while True:
+    print("\nOptions: 1. Add Income  2. Add Expense  3. Save  4. Load  5. Plot  6. Summary  7. Exit")
+    choice = input("Choose an option:")
+
+    if choice == '1':
+        amount = get_valid_amount()
+        source = input("Enter source: ")
+        date = input("Enter date (YYYY-MM-DD): ")
+        df = add_income(df, amount, source, date)
+    elif choice == '2':
+        amount = get_valid_amount()
+        category = input("Enter category: ")
+        date = input("Enter date (YYYY-MM-DD): ")
+        df = add_expense(df, amount, category, date)
+    elif choice == '3':
+        filename = input("Enter filename: ")
+        save_data(df, filename)
+    elif choice == '4':
+        filename = input("Enter filename: ")
+        df = load_data(filename)
+    elif choice == '5':
+        plot_data(df)
+    elif choice == '6':
+        show_summary(df)
+    elif choice == '7':
+        break
+    else:
+        print("Invalid choice. Please try again.")
+
+
 
 if __name__ == "__main__":
     main()
