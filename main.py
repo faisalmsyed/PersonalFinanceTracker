@@ -99,7 +99,7 @@ def show_summary(df):
 def plot_monthly_summary(df):
     df['Date'] = pd.to_datetime(df['Date'])
     df.set_index('Date', inplace=True)
-    monthly_summary = df.resample('M').sum()
+    monthly_summary = df.resample('ME').sum()
 
     plt.figure(figsize=(10, 5))
     plt.plot(monthly_summary.index, monthly_summary['Amount'], label='Total')
