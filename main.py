@@ -99,6 +99,7 @@ def show_summary(df):
 def plot_monthly_summary(df):
     df['Date'] = pd.to_datetime(df['Date'])
     df.set_index('Date', inplace=True)
+    df = df.sort_index()
     monthly_summary = df.resample('ME').sum()
 
     plt.figure(figsize=(10, 5))
