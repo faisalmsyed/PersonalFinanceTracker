@@ -24,12 +24,12 @@ def get_valid_amount():
         except ValueError:
             print("Invalid amount. Please enter a positive number.")
 
-def add_income(df, amount, source):
-    df = df.append({'Amount': amount, 'Source': source, 'Type':'Income'}, ignore_index=True)
+def add_income(df, amount, source, date):
+    df = df.append({'Amount': amount, 'Source/Category': source, 'Type': 'Income', 'Date': date}, ignore_index=True)
     return df
 
-def add_expense(df,amount, category):
-    df = df.append({'Amount': amount, 'Category': category, 'Type': 'Expense'}, ignore_index=True)
+def add_expense(df, amount, category, date):
+    df = df.append({'Amount': amount, 'Source/Category': category, 'Type': 'Expense', 'Date': date}, ignore_index=True)
     return df
 
 def save_data(df, filename):
